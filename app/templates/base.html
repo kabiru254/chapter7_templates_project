@@ -34,7 +34,7 @@
           <a class="nav-link" href="{{ url_for('register') }}">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+          <a class="nav-link" href="{{ url_for('add_product') }}">Add Product</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -45,6 +45,23 @@
   </div>
 </nav>
 <!-- End Navbar -->
+
+<!-- Beginning of flash message -->
+<div class="row text-center">
+  <div class="col-md-12">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div>
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+</div>
+<!-- End of flash message -->
+
  <div class="container">
   {% block content %} {% endblock %}
  </div>
